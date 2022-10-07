@@ -4,7 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../dist/index.css" />
     <title>Joel Balderas</title>
   </head>
-  <body></body>
+  <body class="bg-primary">
+    <header class="fixed top-0 w-full py-5 px-4">
+      <nav id="navbar" class="flex flex-col sm:flex-row sm:justify-between">
+        <div class="flex justify-between">
+          <h1
+            class="text-white pl-5 text-3xl flex items-center font-semibold sm:pl-10"
+          >
+            Joel Balderas
+          </h1>
+          <div id="hambMenu" class="h-10 w-10 bg-white sm:hidden"></div>
+        </div>
+        <ul
+          id="navList"
+          class="text-secondary hidden flex-col justify-center text-lg transition ease-in duration-700 sm:flex sm:flex-row sm:justify-end"
+        >
+          <li class="py-1 ml-5 flex items-center sm:mr-6 sm:py-0 sm:ml-0">
+            About
+          </li>
+          <li class="py-1 ml-5 flex items-center sm:mr-6 sm:py-0 sm:ml-0">
+            Experience
+          </li>
+          <li class="py-1 ml-5 flex items-center sm:mr-6 sm:py-0 sm:ml-0">
+            Projects
+          </li>
+          <li class="py-1 ml-5 flex items-center sm:mr-6 sm:py-0 sm:ml-0">
+            Contact
+          </li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+  <script src="./index.js"></script>
 </html>
