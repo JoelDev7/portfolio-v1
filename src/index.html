@@ -8,7 +8,7 @@
     <title>Joel Balderas</title>
   </head>
   <body class="bg-primary">
-    <header class="fixed top-0 w-full py-5 px-4">
+    <header id="pageHeader" class="fixed top-0 w-full py-5 px-4 bg-primary">
       <nav id="navbar" class="flex flex-col sm:flex-row sm:justify-between">
         <div class="flex justify-between">
           <h1
@@ -37,6 +37,37 @@
         </ul>
       </nav>
     </header>
+    <section id="about" class="grid grid-cols-1 sm:grid-cols-2 text-white">
+      <div
+        class="flex flex-col justify-start sm:justify-center text-center order-last sm:order-first sm:text-left sm:pl-16"
+      >
+        <h1
+          class="text-xl font-thin max-w-md mx-auto sm:max-w-full lg:text-3xl sm:mx-0"
+        >
+          Hi, My names is
+        </h1>
+        <h2
+          class="text-4xl font-bold max-w-md mx-auto sm:max-w-full my-2 sm:text-6xl sm:my-0 lg:text-8xl sm:mx-0"
+        >
+          Joel Balderas
+        </h2>
+        <h3
+          class="text-xl font-medium px-4 max-w-md mx-auto sm:max-w-full sm:text-xl sm:px-0 sm:text-left lg:text-4xl sm:mx-0"
+        >
+          I'm a front end developer and UX/UI design enthusiast.
+        </h3>
+      </div>
+      <div class="sm:flex order-first sm:order-last">
+        <div class="h-full flex m-auto">
+          <img
+            class="rounded-full w-3/6 sm:w-4/6 xl:w-5/6 h-auto mx-auto my-auto sm:my-auto"
+            src="./images/profile.png"
+            alt="Profile photo"
+          />
+        </div>
+      </div>
+    </section>
+    <section></section>
   </body>
   <script src="./index.js"></script>
 </html>
