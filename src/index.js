@@ -23,6 +23,6 @@ function setSectionHeight(sectionName) {
     const section = document.getElementById(sectionName);
     const windowHeight = isNaN(window.innerHeight) ? window.clientHeight : window.innerHeight;
     const pageHeaderHeight = document.getElementById('pageHeader').clientHeight;
-    section.style.height = (windowHeight - pageHeaderHeight)+'px'; //never forget 'px'
+    section.style.minHeight = (windowHeight - pageHeaderHeight)+'px'; //never forget 'px'
     section.style.marginTop = pageHeaderHeight + 'px';
 }
