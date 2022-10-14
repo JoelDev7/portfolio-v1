@@ -2,7 +2,7 @@ window.addEventListener('load', ()=> {
     toggleNavMenuVisibility();
     setSectionHeight('about');
     setSectionHeight('experience');
-    // normalizeTextWidth('fullname', ['im']);
+    setSectionHeight('projects');
 });
 
 /**
@@ -26,14 +26,3 @@ function setSectionHeight(sectionName) {
     section.style.height = (windowHeight - pageHeaderHeight)+'px'; //never forget 'px'
     section.style.marginTop = pageHeaderHeight + 'px';
 }
-
-// /**
-//  * Receives a text element id, gets its width and sets that width to other text elements.
-//  * @param {*} refereceTextId Id of the reference text element.
-//  * @param {Array} targetText Array of ids from target text elements.
-//  */
-// function normalizeTextWidth(refereceTextId, targetTextId) {
-//     targetTextId.forEach(element => {
-//         document.getElementById(element).style.width = document.getElementById(refereceTextId).clientWidth + 'px';
-//     });
-// }

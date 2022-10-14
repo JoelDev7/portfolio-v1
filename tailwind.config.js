@@ -5,7 +5,11 @@ module.exports = {
     extend: {
       colors: {
         primary: "#000b1c",
-        secondary: "#229e63"
+        secondary: "#229e63",
+        tertiary: "#0D203D"
+      },
+      fontFamily: {
+        raleway: ['Raleway']
       }
     },
   },
