@@ -38,9 +38,9 @@
     </header>
     <section id="about" class="grid grid-cols-1 sm:grid-cols-2">
       <div
-        class="flex flex-col justify-start sm:justify-center text-center order-last sm:order-first sm:text-left sm:pl-16"
+        class="flex flex-col justify-start sm:justify-center text-center order-last p-4 sm:p-0 sm:order-first sm:text-left sm:pl-16"
       >
-        <h1
+        <!-- <h1
           class="text-xl font-thin max-w-md mx-auto sm:max-w-full lg:text-3xl sm:mx-0"
         >
           Hi, My names is
@@ -52,8 +52,13 @@
         </h2>
 
         <h3
-          class="text-xl font-medium px-4 max-w-md mx-auto sm:max-w-full sm:text-xl sm:px-0 sm:text-justify lg:text-4xl sm:mx-0"
+          class="text-xl font-medium px-4 max-w-md mx-auto sm:max-w-full sm:text-xl sm:px-0 sm:text-justify lg:text-3xl sm:mx-0"
         >
+          I'm a front end developer and UX/UI design enthusiast.
+        </h3> -->
+        <h1 id="greeting" class="font-thin">Hi, My name is</h1>
+        <h2 id="name" class="font-semibold">Joel Balderas</h2>
+        <h3 id="role" class="font-semibold">
           I'm a front end developer and UX/UI design enthusiast.
         </h3>
       </div>
@@ -69,20 +74,20 @@
     </section>
     <section id="experience" class="flex flex-col sm:flex-row">
       <div class="flex">
-        <div class="m-auto w-3/5 h-auto text-justify">
-          <h1 class="text-secondary text-3xl font-bold">
+        <div class="m-auto w-4/5 sm:w-3/5 h-auto text-justify">
+          <h1 class="text-secondary text-2xl font-bold">
             Internship experience
           </h1>
-          <p class="text-xl mt-5 mb-6">
+          <p class="text-lg mt-5 mb-6">
             My internship project was to redesign and build a website for a
             condiment company, where I :
           </p>
-          <ul class="text-xl list-inside list-disc">
-            <li class="my-3">
+          <ul class="text-md list-inside list-disc">
+            <li class="my-2">
               Created wireframes together with the marketing person.
             </li>
-            <li class="my-3">Converted wireframes into mockups.</li>
-            <li class="my-3">
+            <li class="my-2">Converted wireframes into mockups.</li>
+            <li class="my-2">
               Built the website using React and Tailwind Elements.
             </li>
           </ul>
@@ -99,7 +104,8 @@
       </div>
     </section>
     <section id="projects" class="text-center">
-      <div class="inline-block">
+      <div class="inline-block mb-8">
+        <h1 class="text-secondary text-2xl font-bold">Recent projects</h1>
         <div
           class="w-8/12 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10"
         >
@@ -177,6 +183,16 @@
           </div>
         </div>
       </div>
+    </section>
+    <section id="contact" class="flex flex-col justify-center items-center">
+      <h1 class="text-4xl text-center p-5">
+        Do you have a job opportunity or want to network?
+      </h1>
+      <button
+        class="border-2 rounded-md border-secondary text-xl text-secondary font-semibold px-5 py-3 mt-5"
+      >
+        Get in touch
+      </button>
     </section>
   </body>
   <script src="./index.js"></script>
