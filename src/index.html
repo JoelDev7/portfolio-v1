@@ -15,13 +15,21 @@
           <h1 class="pl-5 text-3xl flex items-center font-semibold sm:pl-10">
             Joel Balderas
           </h1>
-          <div id="hambMenu" class="h-10 w-10 bg-white sm:hidden"></div>
+          <div id="hambMenu" class="block sm:hidden">
+            <svg viewBox="0 0 100 80" width="40" height="40">
+              <rect fill="#229e63" width="100" height="10" rx="4"></rect>
+              <rect fill="#229e63" y="30" width="100" height="10" rx="4"></rect>
+              <rect fill="#229e63" y="60" width="100" height="10" rx="4"></rect>
+            </svg>
+          </div>
         </div>
         <ul
           id="navList"
           class="text-secondary hidden flex-col justify-center text-lg transition ease-in duration-700 sm:flex sm:flex-row sm:justify-end"
         >
-          <li class="py-1 ml-5 flex items-center sm:mr-6 sm:py-0 sm:ml-0">
+          <li
+            class="py-1 ml-5 flex items-center sm:mr-6 sm:py-0 sm:ml-0 hover:text-white transition ease-in duration-150"
+          >
             About
           </li>
           <li class="py-1 ml-5 flex items-center sm:mr-6 sm:py-0 sm:ml-0">
@@ -40,24 +48,8 @@
       <div
         class="flex flex-col justify-start sm:justify-center text-center order-last p-4 sm:p-0 sm:order-first sm:text-left sm:pl-16"
       >
-        <!-- <h1
-          class="text-xl font-thin max-w-md mx-auto sm:max-w-full lg:text-3xl sm:mx-0"
-        >
-          Hi, My names is
-        </h1>
-        <h2
-          class="text-4xl inline-block font-bold max-w-md mx-auto sm:max-w-full my-2 sm:text-6xl sm:my-0 lg:text-8xl sm:mx-0"
-        >
-          Joel Balderas
-        </h2>
-
-        <h3
-          class="text-xl font-medium px-4 max-w-md mx-auto sm:max-w-full sm:text-xl sm:px-0 sm:text-justify lg:text-3xl sm:mx-0"
-        >
-          I'm a front end developer and UX/UI design enthusiast.
-        </h3> -->
         <h1 id="greeting" class="font-thin">Hi, My name is</h1>
-        <h2 id="name" class="font-semibold">Joel Balderas</h2>
+        <h2 id="name" class="font-semibold">Joel Balderas.</h2>
         <h3 id="role" class="font-semibold">
           I'm a front end developer and UX/UI design enthusiast.
         </h3>
@@ -145,7 +137,7 @@
               <li class="mr-2 inline">Other Thing</li>
             </ul>
           </div>
-          <div class="project-container bg-tertiary py-8 px-8 rounded-md">
+          <!-- <div class="project-container bg-tertiary py-8 px-8 rounded-md">
             <h1 class="text-xl font-bold">Not just a pomodoro</h1>
             <p style="min-height: 120px" class="mt-4 font-light text-justify">
               This app mixes an activity tracker like trello with a pomodoro
@@ -180,16 +172,17 @@
               <li class="mr-2 inline">Materialize</li>
               <li class="mr-2 inline">Other Thing</li>
             </ul>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
     <section id="contact" class="flex flex-col justify-center items-center">
       <h1 class="text-4xl text-center p-5">
-        Do you have a job opportunity or want to network?
+        Do you have a job opportunity,<br />
+        or want to network?
       </h1>
       <button
-        class="border-2 rounded-md border-secondary text-xl text-secondary font-semibold px-5 py-3 mt-5"
+        class="border-2 rounded-md border-secondary text-xl text-secondary font-semibold px-5 py-3 mt-5 hover:bg-secondary hover:bg-opacity-5 transition ease-in duration-150"
       >
         Get in touch
       </button>

@@ -6,26 +6,25 @@ let viewportWidth = getWindowWidth();
  */
 window.addEventListener('load', ()=> {
     toggleNavMenuVisibility();
-    setSectionHeight('about');
-    setSectionHeight('experience');
-    setSectionHeight('projects');
-    setSectionHeight('contact');
+    sectionsHeightController(getDeviceOrientation());
     setIntroFontSize();
+    
 });
 
 /**
  * Changes sections height when device orientation changes or browser window is resized;
  */
 window.addEventListener('resize', ()=> {
-    // Line 21 is to avoid unnecessary resizing when browsing on mobile devices.
+    // Next line is to avoid unnecessary resizing when browsing on mobile devices.
     if(getResizeHeightDifference()> 200){
-    setSectionHeight('about');
-    setSectionHeight('experience');
-    setSectionHeight('projects');
-    setSectionHeight('contact');
+    sectionsHeightController(getDeviceOrientation());
     setIntroFontSize();
     viewportHeight = getWindowHeight();
     }
+});
+
+window.addEventListener('orientationchange', () =>{
+    sectionsHeightController(getDeviceOrientation())
 });
 
 
@@ -42,13 +41,35 @@ function toggleNavMenuVisibility() {
 /**
  * Dynamically sets section minHeight according to viewport height and header height.
  * @param {*} sectionName 
+ * @param {boolean} navMarginActive Sets margin top for the section to avoid hiding content by the navbar.
  */
-function setSectionHeight(sectionName) {
+function setSectionHeight(sectionName, navMarginActive = false) {
     const section = document.getElementById(sectionName);
     const windowHeight = getWindowHeight();
     const pageHeaderHeight = document.getElementById('pageHeader').clientHeight;
     section.style.minHeight = (windowHeight - pageHeaderHeight)+'px'; //never forget 'px'
-    section.style.marginTop = pageHeaderHeight + 'px';
+    if (navMarginActive) {
+        section.style.marginTop = pageHeaderHeight + 'px';
+    }
+}
+
+/**
+ * Encloses the height setting for each section element and also controls navbar offset when browsing on desktop.
+ * @param {*} deviceOrientation when set to "portrait" eliminates margin top offset for the navbar.
+ */
+function sectionsHeightController(deviceOrientation) {
+if (deviceOrientation = 'portrait') {   
+    setSectionHeight('about', true);
+    setSectionHeight('experience');
+    setSectionHeight('projects');
+    // setSectionHeight('contact');
+}
+if (deviceOrientation="landscape"){
+    setSectionHeight('about', true);
+    setSectionHeight('experience', true);
+    setSectionHeight('projects', true);
+    // setSectionHeight('contact');
+}
 }
 
 /**
@@ -72,7 +93,7 @@ function setIntroFontSize() {
     const windowWidth = getWindowWidth();
     if (windowWidth> 639) {
         document.getElementById('greeting').style.fontSize = '2vw';
-        document.getElementById('name').style.fontSize = '6.8vw';
+        document.getElementById('name').style.fontSize = '6.6vw';
         document.getElementById('role').style.fontSize = '2.5vw';
     }else {
         document.getElementById('greeting').style.fontSize = '5vw';
@@ -86,4 +107,20 @@ function setIntroFontSize() {
  */
 function getResizeHeightDifference() {
     return Math.abs(viewportHeight - getWindowHeight());
+}
+
+/**
+ * 
+ * @returns A string containing the device orientation.
+ */
+function getDeviceOrientation() {
+    let orientation;
+    let portrait = window.matchMedia("(orientation: portrait)");
+    if(portrait.matches){
+        orientation = 'portrait';
+    }else {
+        orientation = 'landscape';
+    }
+    console.log(orientation);
+    return orientation;
 }
