@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,7 +12,10 @@
     <header id="pageHeader" class="fixed top-0 w-full py-5 px-4 bg-primary">
       <nav id="navbar" class="flex flex-col sm:flex-row sm:justify-between">
         <div class="flex justify-between">
-          <h1 class="pl-5 text-3xl flex items-center font-semibold sm:pl-10">
+          <h1
+            id="headerName"
+            class="pl-5 text-3xl flex items-center font-semibold sm:pl-10 transition duration-1000 ease-in"
+          >
             Joel Balderas
           </h1>
           <div id="hambMenu" class="block sm:hidden">
@@ -28,18 +31,28 @@
           class="text-secondary hidden flex-col justify-center text-lg transition ease-in duration-700 sm:flex sm:flex-row sm:justify-end"
         >
           <li
+            id="linkAbout"
             class="py-1 ml-5 flex items-center sm:mr-6 sm:py-0 sm:ml-0 hover:text-white transition ease-in duration-150"
           >
-            About
+            <a href="#about" class="block">About</a>
           </li>
-          <li class="py-1 ml-5 flex items-center sm:mr-6 sm:py-0 sm:ml-0">
-            Experience
+          <li
+            id="linkExperience"
+            class="py-1 ml-5 flex items-center sm:mr-6 sm:py-0 sm:ml-0 hover:text-white transition ease-in duration-150"
+          >
+            <a href="#experience" class="block">Experience</a>
           </li>
-          <li class="py-1 ml-5 flex items-center sm:mr-6 sm:py-0 sm:ml-0">
-            Projects
+          <li
+            id="linkProjects"
+            class="py-1 ml-5 flex items-center sm:mr-6 sm:py-0 sm:ml-0 hover:text-white transition ease-in duration-150"
+          >
+            <a href="#projects" class="block">Projects</a>
           </li>
-          <li class="py-1 ml-5 flex items-center sm:mr-6 sm:py-0 sm:ml-0">
-            Contact
+          <li
+            id="linkContact"
+            class="py-1 ml-5 flex items-center sm:mr-6 sm:py-0 sm:ml-0 hover:text-white transition ease-in duration-150"
+          >
+            <a href="#contact" class="block">Contact</a>
           </li>
         </ul>
       </nav>
@@ -177,12 +190,13 @@
       </div>
     </section>
     <section id="contact" class="flex flex-col justify-center items-center">
-      <h1 class="text-4xl text-center p-5">
+      <h1 id="call" class="text-4xl text-center p-5">
         Do you have a job opportunity,<br />
         or want to network?
       </h1>
       <button
-        class="border-2 rounded-md border-secondary text-xl text-secondary font-semibold px-5 py-3 mt-5 hover:bg-secondary hover:bg-opacity-5 transition ease-in duration-150"
+        id="action"
+        class="border-2 rounded-md border-secondary text-xl text-secondary font-semibold px-5 py-3 mt-5 mb-5 hover:bg-secondary hover:bg-opacity-5 transition ease-in duration-150"
       >
         Get in touch
       </button>

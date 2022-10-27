@@ -628,6 +628,10 @@ video {
   margin-right: 0.5rem;
 }
 
+.mb-5{
+  margin-bottom: 1.25rem;
+}
+
 .block{
   display: block;
 }
@@ -730,6 +734,10 @@ video {
 
 .gap-10{
   gap: 2.5rem;
+}
+
+.scroll-smooth{
+  scroll-behavior: smooth;
 }
 
 .rounded-full{

@@ -1,5 +1,9 @@
 let viewportHeight = getWindowHeight();
 let viewportWidth = getWindowWidth();
+let didScroll = false;
+let scrollChecker;
+let scrollTimeout;
+let isActionResized = false;
 
 /**
  * Sets sections height and event listenners after the page is loaded.
@@ -8,7 +12,8 @@ window.addEventListener('load', ()=> {
     toggleNavMenuVisibility();
     sectionsHeightController(getDeviceOrientation());
     setIntroFontSize();
-    
+    scrollDetector()
+    displayHeaderName();
 });
 
 /**
@@ -28,28 +33,69 @@ window.addEventListener('orientationchange', () =>{
 });
 
 
+window.addEventListener('scroll', ()=> {
+    didScroll = true;
+    displayHeaderName();
+});
+
+window.addEventListener('beforeunload', () => {
+    clearInterval(scrollChecker);
+    clearTimeout(scrollTimeout);
+});
+
 /**
  * Shows an hides navigation links when browsing on small screens.
  */
 function toggleNavMenuVisibility() {
     const navList = document.getElementById('navList');
     const hambMenu = document.getElementById('hambMenu');
+    const linkAbout = document.getElementById('linkAbout');
+    const linkExperience = document.getElementById('linkExperience');
+    const linkProjects = document.getElementById('linkProjects');
+    const linkContact = document.getElementById('linkContact');
     hambMenu.addEventListener('click', () => {
         navList.classList.toggle('hidden');
     });
+    linkAbout.addEventListener('click', () => {
+        window.location.replace('#about');
+        navList.classList.toggle('hidden');
+    });
+    linkExperience.addEventListener('click', () => {
+        window.location.replace('#experience');
+        navList.classList.toggle('hidden');
+    });
+    linkProjects.addEventListener('click', () => {
+        window.location.replace('#projects');
+        navList.classList.toggle('hidden');
+    });
+    linkContact.addEventListener('click', () => {
+        window.location.replace('#contact');
+        navList.classList.toggle('hidden');
+    });
 }
+
+function displayHeaderName() {
+    const headerName = document.getElementById('headerName');
+    
+    if(isInViewport(document.getElementById('name'))){
+        headerName.style.visibility = 'hidden';
+    }else{
+        headerName.style.visibility = 'visible';
+    }
+}
+
 /**
  * Dynamically sets section minHeight according to viewport height and header height.
  * @param {*} sectionName 
  * @param {boolean} navMarginActive Sets margin top for the section to avoid hiding content by the navbar.
  */
-function setSectionHeight(sectionName, navMarginActive = false) {
+function setSectionHeight(sectionName, navPaddingActive = false) {
     const section = document.getElementById(sectionName);
     const windowHeight = getWindowHeight();
     const pageHeaderHeight = document.getElementById('pageHeader').clientHeight;
     section.style.minHeight = (windowHeight - pageHeaderHeight)+'px'; //never forget 'px'
-    if (navMarginActive) {
-        section.style.marginTop = pageHeaderHeight + 'px';
+    if (navPaddingActive) {
+        section.style.paddingTop = pageHeaderHeight + 'px';
     }
 }
 
@@ -115,12 +161,46 @@ function getResizeHeightDifference() {
  */
 function getDeviceOrientation() {
     let orientation;
-    let portrait = window.matchMedia("(orientation: portrait)");
+    const portrait = window.matchMedia("(orientation: portrait)");
+    const landscape = window.matchMedia("(orientation: landscape)");
     if(portrait.matches){
         orientation = 'portrait';
-    }else {
+    }
+    if(landscape.matches) {
         orientation = 'landscape';
     }
     console.log(orientation);
     return orientation;
+}
+
+function scrollDetector() {
+    scrollChecker = setInterval(() => {
+        if (didScroll) {
+            contactSectionResizer();
+            console.log('scrolled');
+            didScroll = false;
+        }
+    }, 800)
+}
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+function contactSectionResizer() {
+    if(isInViewport(document.getElementById('action'))){
+        if(!isActionResized){
+        setSectionHeight('contact', true);
+        scrollTimeout = setTimeout(() => {
+            window.scrollTo(0, document.body.scrollHeight);
+            isActionResized = true;
+        }, 300);
+    }
+    }
 }
