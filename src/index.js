@@ -183,6 +183,11 @@ function scrollDetector() {
     }, 800)
 }
 
+/**
+ * 
+ * @param {*} element A valid HTML element.
+ * @returns true if the element passed is visible for the user and false if it is not.
+ */
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
@@ -193,6 +198,9 @@ function isInViewport(element) {
     );
 }
 
+/**
+ * Resizes the contact form section from it's shrink height to full window height and scrolls down untill is completely visible.
+ */
 function contactSectionResizer() {
     if(isInViewport(document.getElementById('action'))){
         if(!isActionResized){

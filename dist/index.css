@@ -712,6 +712,10 @@ video {
   width: 50%;
 }
 
+.shrink{
+  flex-shrink: 1;
+}
+
 .resize{
   resize: both;
 }
