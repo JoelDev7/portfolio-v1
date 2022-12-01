@@ -167,7 +167,49 @@
           Contact Me
         </button>
       </div>
-      <form action=""></form>
+      <form
+        id="contactForm"
+        action=""
+        class="hidden bg-tertiary grid grid-cols-2 gap-3 w-1/2 p-5 rounded-md border border-secondary"
+      >
+        <label
+          for="contactForm"
+          class="text-secondary text-xl font-semibold col-span-2 text-center mb-1"
+          >Contact Me</label
+        >
+        <div class="flex flex-col col-span-2 lg:col-span-1">
+          <label for="fullName" class="mb-1">Full Name</label>
+          <input
+            id="fullName"
+            type="text"
+            class="bg-tertiary border border-secondary rounded-md px-2 py-1"
+          />
+        </div>
+        <div class="flex flex-col col-span-2 lg:col-span-1">
+          <label for="email" class="mb-1">Email</label>
+          <input
+            id="email"
+            type="text"
+            class="bg-tertiary border border-secondary rounded-md px-2 py-1"
+          />
+        </div>
+        <div class="flex flex-col col-span-2">
+          <label for="message" class="mb-1">Message</label>
+          <textarea
+            style="min-height: 200px"
+            name="message"
+            id="message"
+            class="bg-tertiary border border-secondary rounded-md px-2 py-1"
+          ></textarea>
+        </div>
+        <div class="flex justify-center col-span-2 mt-2">
+          <button
+            class="border border-secondary rounded-md px-6 py-2 bg-secondary bg-opacity-10 transition duration-150 ease-in hover:bg-opacity-95 active:bg-opacity-95"
+          >
+            Send
+          </button>
+        </div>
+      </form>
     </section>
   </body>
   <script src="./index.js"></script>
