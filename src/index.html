@@ -155,13 +155,14 @@
       </div>
     </section>
     <section id="contact" class="flex flex-col justify-center items-center">
-      <div class="flex flex-col items-center">
+      <div id="callContainer" class="flex flex-col items-center">
         <h1 id="call" class="text-4xl text-center p-5">
           Do you have a job opportunity,<br />
           or want to network?
         </h1>
         <button
           id="action"
+          onclick="showContactForm()"
           class="border-2 rounded-md border-secondary text-xl text-secondary font-semibold px-5 py-3 mt-5 mb-5 hover:bg-secondary hover:bg-opacity-5 transition ease-in duration-150"
         >
           Contact Me
@@ -170,7 +171,7 @@
       <form
         id="contactForm"
         action=""
-        class="hidden bg-tertiary grid grid-cols-2 gap-3 w-1/2 p-5 rounded-md border border-secondary"
+        class="bg-tertiary grid grid-cols-2 gap-3 w-1/2 p-5 rounded-md border border-secondary hidden"
       >
         <label
           for="contactForm"

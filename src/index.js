@@ -205,3 +205,10 @@ function contactSectionResizer() {
     }
 }
 
+/**
+ * Changes the call to action screen for the contact form.
+ */
+function showContactForm() {
+    document.getElementById('callContainer').classList.toggle('hidden');
+    document.getElementById('contactForm').classList.toggle('hidden');
+}
