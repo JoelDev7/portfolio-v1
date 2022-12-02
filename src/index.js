@@ -14,6 +14,7 @@ window.addEventListener('load', ()=> {
     setIntroFontSize();
     scrollDetector()
     displayHeaderName();
+    resetFormFields();
 });
 
 /**
@@ -238,15 +239,58 @@ function sendMessage(event) {
     }
 }
 
+function fullNameValidator() {
+    if (isFullNameValid()) {
+        document.getElementById('fullNameNotValid').classList.add('hidden');
+    } else {
+        document.getElementById('fullNameNotValid').classList.remove('hidden');
+    }
+}
+
+function emailValidator() {
+    if (isEmailValid()) {
+        document.getElementById('emailNotValid').classList.add('hidden');
+    } else {
+        document.getElementById('emailNotValid').classList.remove('hidden');
+    }
+}
+
+function messageValidator() {
+    if (isMessageLongEnough()) {
+        document.getElementById('messageNotValid').classList.add('hidden');
+    } else {
+        document.getElementById('messageNotValid').classList.remove('hidden');
+    }
+}
+
+
+/**
+ * @returns True if Full Name field is greater than 6 characters.
+ */
 function isFullNameValid() {
     return document.getElementById('fullName').value.length > 6;
 }
 
+/**
+ * @returns True if Email field has an email address that matches the set Regex.
+ */
 function isEmailValid() {
     const emailRegex = /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/gm;
     return emailRegex.test(document.getElementById('email').value);
 }
 
+/**
+ * @returns True if Message field is greater than 50 characters.
+ */
 function isMessageLongEnough() {
     return document.getElementById('message').value.length > 50;
+}
+
+/**
+ * Clears any form data set by the user on each time the page is reloaded;
+ */
+function resetFormFields() {
+    document.getElementById('fullName').value = "";
+    document.getElementById('email').value = "";
+    document.getElementById('message').value = "";
 }

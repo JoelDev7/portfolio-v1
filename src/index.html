@@ -182,26 +182,46 @@
           <label for="fullName" class="mb-1">Full Name</label>
           <input
             id="fullName"
+            onblur="fullNameValidator()"
             type="text"
             class="bg-tertiary border border-secondary rounded-md px-2 py-1"
           />
+          <p
+            id="fullNameNotValid"
+            class="hidden text-red-300 text-sm font-medium"
+          >
+            Please make sure you wrote your
+            <strong>First and Last Name</strong>.
+          </p>
         </div>
         <div class="flex flex-col col-span-2 lg:col-span-1">
           <label for="email" class="mb-1">Email</label>
           <input
             id="email"
+            onblur="emailValidator()"
             type="email"
             class="bg-tertiary border border-secondary rounded-md px-2 py-1"
           />
+          <p id="emailNotValid" class="hidden text-red-300 text-sm font-medium">
+            Please make sure you wrote your
+            <strong>Email address</strong> correctly.
+          </p>
         </div>
         <div class="flex flex-col col-span-2">
           <label for="message" class="mb-1">Message</label>
           <textarea
+            onblur="messageValidator()"
             style="min-height: 200px"
             name="message"
             id="message"
             class="bg-tertiary border border-secondary rounded-md px-2 py-1"
           ></textarea>
+          <p
+            id="messageNotValid"
+            class="hidden text-red-300 text-sm font-medium"
+          >
+            Looks like your message is a bit short, please add more details.
+          </p>
         </div>
         <div class="flex justify-center col-span-2 mt-2">
           <button
