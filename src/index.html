@@ -170,8 +170,8 @@
       </div>
       <form
         id="contactForm"
-        action=""
-        class="bg-tertiary grid grid-cols-2 gap-3 w-1/2 p-5 rounded-md border border-secondary hidden"
+        action="https://www.google.com"
+        class="bg-tertiary grid grid-cols-2 gap-3 w-11/12 sm:w-1/2 p-5 rounded-md border border-secondary hidden"
       >
         <label
           for="contactForm"
@@ -190,7 +190,7 @@
           <label for="email" class="mb-1">Email</label>
           <input
             id="email"
-            type="text"
+            type="email"
             class="bg-tertiary border border-secondary rounded-md px-2 py-1"
           />
         </div>
@@ -205,6 +205,7 @@
         </div>
         <div class="flex justify-center col-span-2 mt-2">
           <button
+            onclick="sendMessage(event)"
             class="border border-secondary rounded-md px-6 py-2 bg-secondary bg-opacity-10 transition duration-150 ease-in hover:bg-opacity-95 active:bg-opacity-95"
           >
             Send
@@ -212,6 +213,12 @@
         </div>
       </form>
     </section>
+    <footer
+      class="bg-tertiary py-3 flex items-center justify-center text-center text-sm"
+    >
+      <div>Designed and built by Joel Balderas</div>
+      <div></div>
+    </footer>
   </body>
   <script src="./index.js"></script>
 </html>

@@ -74,6 +74,9 @@ function toggleNavMenuVisibility() {
     });
 }
 
+/**
+ * Shows the site name from the navbar when scrolling down to next sections.
+ */
 function displayHeaderName() {
     const headerName = document.getElementById('headerName');
     
@@ -108,13 +111,13 @@ if (deviceOrientation = 'portrait') {
     setSectionHeight('about', true);
     setSectionHeight('experience');
     setSectionHeight('projects');
-    // setSectionHeight('contact');
+
 }
 if (deviceOrientation="landscape"){
     setSectionHeight('about', true);
     setSectionHeight('experience', true);
     setSectionHeight('projects', true);
-    // setSectionHeight('contact');
+
 }
 }
 
@@ -169,24 +172,25 @@ function getDeviceOrientation() {
     if(landscape.matches) {
         orientation = 'landscape';
     }
-    console.log(orientation);
     return orientation;
 }
 
+/**
+ * Detect if the user has scrolled the page.
+ */
 function scrollDetector() {
     scrollChecker = setInterval(() => {
         if (didScroll) {
             contactSectionResizer();
-            console.log('scrolled');
             didScroll = false;
         }
     }, 800)
 }
 
 /**
- * 
+ * Determinates if an elememt of the page is currently visible for the user.
  * @param {*} element A valid HTML element.
- * @returns true if the element passed is visible for the user and false if it is not.
+ * @returns true if the passed element is visible for the user and false if it is not.
  */
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
@@ -204,7 +208,7 @@ function isInViewport(element) {
 function contactSectionResizer() {
     if(isInViewport(document.getElementById('action'))){
         if(!isActionResized){
-        setSectionHeight('contact', true);
+        setSectionHeight('contact');
         scrollTimeout = setTimeout(() => {
             window.scrollTo(0, document.body.scrollHeight);
             isActionResized = true;
@@ -219,4 +223,30 @@ function contactSectionResizer() {
 function showContactForm() {
     document.getElementById('callContainer').classList.toggle('hidden');
     document.getElementById('contactForm').classList.toggle('hidden');
+}
+
+/**
+ * Sends the message from the contact form if all fields are filled correctly.
+ * @param {*} event 
+ */
+function sendMessage(event) {   
+    if (isFullNameValid() && isEmailValid() && isMessageLongEnough()){
+    console.log('fine');
+    } else {
+        event.preventDefault();
+    console.log('not fine');
+    }
+}
+
+function isFullNameValid() {
+    return document.getElementById('fullName').value.length > 6;
+}
+
+function isEmailValid() {
+    const emailRegex = /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/gm;
+    return emailRegex.test(document.getElementById('email').value);
+}
+
+function isMessageLongEnough() {
+    return document.getElementById('message').value.length > 50;
 }

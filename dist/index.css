@@ -712,6 +712,10 @@ video {
   width: 50%;
 }
 
+.w-11\/12{
+  width: 91.666667%;
+}
+
 .shrink{
   flex-shrink: 1;
 }
@@ -738,6 +742,10 @@ video {
 
 .flex-col{
   flex-direction: column;
+}
+
+.content-center{
+  align-content: center;
 }
 
 .items-center{
@@ -1049,6 +1057,10 @@ video {
 
   .sm\:w-3\/5{
     width: 60%;
+  }
+
+  .sm\:w-1\/2{
+    width: 50%;
   }
 
   .sm\:grid-cols-2{
