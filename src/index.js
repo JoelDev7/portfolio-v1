@@ -232,13 +232,14 @@ function showContactForm() {
  */
 function sendMessage(event) {   
     if (isFullNameValid() && isEmailValid() && isMessageLongEnough()){
-    console.log('fine');
     } else {
         event.preventDefault();
-    console.log('not fine');
     }
 }
 
+/**
+ * Shows an error message if the Full Name field is not filled correctly.
+ */
 function fullNameValidator() {
     if (isFullNameValid()) {
         document.getElementById('fullNameNotValid').classList.add('hidden');
@@ -247,6 +248,9 @@ function fullNameValidator() {
     }
 }
 
+/**
+ * Shows an error message if the Email field is not filled correctly.
+ */
 function emailValidator() {
     if (isEmailValid()) {
         document.getElementById('emailNotValid').classList.add('hidden');
@@ -255,6 +259,9 @@ function emailValidator() {
     }
 }
 
+/**
+ * Shows an error message if the Message field is not filled correctly.
+ */
 function messageValidator() {
     if (isMessageLongEnough()) {
         document.getElementById('messageNotValid').classList.add('hidden');
