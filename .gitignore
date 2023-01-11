@@ -1,2 +1,5 @@
 /node_modules
 /src/images
+/.firebase
+/src/.firebaserc
+/src/firebase.json
